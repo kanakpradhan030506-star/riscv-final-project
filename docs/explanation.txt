@@ -1,0 +1,9 @@
+## Single Cycle RISC-V Processor
+
+This project implements a basic 32-bit Single Cycle RISC-V Processor in Verilog HDL. The processor executes instructions by completing fetch, decode, execute, memory access, and write-back operations within a single clock cycle.
+
+The design integrates multiple processor modules including ALU, Register File, Program Counter, Instruction Memory, Data Memory, Instruction Decoder, ALU Control, and Control Signal Generator.
+
+The processor currently supports execution of R-Type, I-Type, S-Type, and basic B-Type instructions. Simulation waveforms were used to verify instruction flow, control signal generation, ALU operations, memory access, and register write-back.
+
+The project demonstrates understanding of processor architecture, datapath integration, instruction decoding, and hardware design using Verilog HDL.
