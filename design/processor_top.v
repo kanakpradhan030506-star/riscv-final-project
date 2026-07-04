@@ -1,13 +1,11 @@
-module processor_top(input clk, input reset);
-wire [31:0] instruction;
+module processor_top(input clk,input reset,output [31:0] pc,output [31:0] instruction,output [31:0] result);
+
 wire [31:0] immediate;
-wire [31:0] result;
 wire reg_write;
 wire mem_read;
 wire mem_write;
 wire alu_src;
 wire branch;
-wire [31:0] pc;
 wire [6:0] opcode;
 wire [4:0] destination_reg;
 wire [2:0] func3;
