@@ -9,6 +9,6 @@ always @(posedge clk) begin
     if(reg_write && destination_reg != 0)
         registers[destination_reg] <= write_data;
 end
-assign read_data1 = (source_reg_1 == 0) ? 0 : registers[source_reg_1];
-assign read_data2 = (source_reg_2 == 0) ? 0 : registers[source_reg_2];
+assign read_data1 = (source_reg_1 == 0) ? 32'b0 : registers[source_reg_1];
+assign read_data2 = (source_reg_2 == 0) ? 32'b0 : registers[source_reg_2];
 endmodule

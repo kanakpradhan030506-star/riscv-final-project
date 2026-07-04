@@ -20,5 +20,5 @@ always @(*) begin
         default: alu_sel = 3'b000;
     endcase
 end
-
+//only added these for now ADD,ADDI,SW,BEQ later XOR,SLL,SRL
 endmodule
