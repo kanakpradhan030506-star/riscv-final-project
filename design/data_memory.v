@@ -7,11 +7,11 @@ initial begin // removes undefined modules during simulation as earlier
 end
 always @(posedge clk) begin
     if(mem_write)
-        memory[address[4:0]] <= write_data;
+        memory[address[6:2]] <= write_data;
 end
 always @(*) begin
     if(mem_read)
-        read_data = memory[address[4:0]];
+        read_data = memory[address[6:2]];
     else
         read_data = 32'b0;
 end

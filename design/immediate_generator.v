@@ -2,8 +2,8 @@ module immediate_generator( input [31:0] instruction , output reg [31:0] immedia
   always @(*)
     begin
       case(instruction[6:0])
-         7'b0010011,7'b0000011:
-           begin //I TYPE (addi , lw)
+         7'b0010011,7'b0000011 , 7'b1100111:
+           begin //I TYPE (addi , lw , jalr)
              immediate = {{20{instruction[31]}},instruction[31:20]};
            end
           7'b0100011:
@@ -14,8 +14,16 @@ module immediate_generator( input [31:0] instruction , output reg [31:0] immedia
           begin //B TYPE
             immediate = {{19{instruction[31]}}, instruction[31] , instruction[7] , instruction[30:25] , instruction[11:8],1'b0};
           end
-        default:
-          immediate = 32'b0;
+          7'b0110111,7'b0010111:
+          begin // U-TYPE (LUI, AUIPC)
+            immediate = {instruction[31:12], 12'b0};
+          end
+          7'b1101111:
+          begin// J TYPE(JAL)
+            immediate = {{11{instruction[31]}}, instruction[31] , instruction[19:12] , instruction[20] , instruction[30:21],1'b0};
+          end
+          default:
+            immediate = 32'b0;
       endcase
     end
 endmodule
