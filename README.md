@@ -1,47 +1,57 @@
-# Single Cycle RISC-V Processor (Verilog)
+# RV32I Single-Cycle RISC-V Processor
 
-A basic 32-bit Single Cycle RISC-V Processor designed in Verilog HDL by integrating core processor components and simulating instruction execution in a single clock cycle architecture.
-
-<img width="1832" height="715" alt="single_cycle_riscv_processor" src="https://github.com/user-attachments/assets/0fd4246c-ba45-4112-a922-73279836ec0a" />
-
+A 32-bit Single-Cycle RISC-V (RV32I) Processor designed in Verilog HDL. This processor executes one instruction per clock cycle and implements the core RV32I instruction set using a modular RTL architecture.
 
 ## Features
 
-- 32-bit ALU for arithmetic and logic operations
-- Register File with 32 registers
-- Program Counter (PC) for instruction sequencing
-- Instruction Memory for instruction fetch
-- Data Memory for load or store operations
-- Complete RISC-V Instruction Decoder
-- Control Signal Generator
-- ALU Control Unit
-- Top Module Integration of all processor blocks
-- Simulation and waveform verification
+- 32-bit RV32I Processor
+- Single-Cycle Datapath
+- Modular Verilog Design
+- Synthesizable RTL
+- Functional Simulation using EDA Playground
 
-## Supported Instruction Types
+## Supported Instructions
+### Arithmetic
+- ADD, SUB, ADDI
+### Logical
+- AND, OR, XOR
+### Shift
+- SLL, SRL, SRA
+### Comparison
+- SLT, SLTU
+### Memory
+- LW, SW
+### Control Flow
+- BEQ, BNE, BLT, BGE, BLTU, BGEU
+- JAL, JALR
+### Upper Immediate
+- LUI, AUIPC
+## Project Modules
 
-- R-Type (ADD, SUB, AND, OR)
-- I-Type (ADDI)
-- S-Type (Store Word)
-- B-Type (Branch decode support)
+- Program Counter
+- Instruction Memory
+- Control Unit
+- Register File
+- Immediate Generator
+- ALU Control
+- 32-bit ALU
+- Data Memory
+- Processor Top
+- Testbench
 
-## Project Structure
+## Verification
 
-SINGLE-CYCLE-RISCV-PROCESSOR/
-│── design/
-│── testbench/
-│── waveform/
-│── docs/
-└── README.md
+The processor has been functionally verified through simulation with waveform analysis, validating arithmetic, memory, branch, jump, and write-back operations.
 
-## Tools Used
-Verilog HDL
-VS Code
-EDA Playground
-GTKWave for waveform analysis
+## Future Work
 
-## Future Improvements
-Branch execution logic
-Zero flag generation
-PC branch update logic
-Full instruction set support
+- Five-stage Pipeline
+- Hazard Detection & Forwarding
+- Branch Prediction
+- FPGA Implementation
+
+
+## Author
+
+**Kanak Pradhan**  
+B.Tech Electronics Engineering, YCCE Nagpur

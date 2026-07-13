@@ -49,9 +49,9 @@ always @(*) begin
             endcase
         end
         3'b100: begin
-            alu_sel = 4'b0000; // ADD ( used for LUI because rs1=x0)
+            alu_sel = 4'b1010; //LUI
         end
-        default: alu_sel = 4'b1010; //LUI operation
+        default: alu_sel = 4'b0000;
     endcase
 end
 endmodule

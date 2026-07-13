@@ -48,8 +48,8 @@ assign bltu = (A < B);
 assign bgeu = (A >= B);
 
 assign branch_target = pc + immediate;
-assign pc_plus4 = pc + 32'b4;
-assign jalr_target = read_data1 + immediate;
+assign pc_plus4 = pc + 32'd4;
+assign jalr_target = (read_data1 + immediate) & 32'hFFFFFFFE;
 
 assign A = read_data1;
 assign B = (alu_src) ? immediate : read_data2;
@@ -57,12 +57,17 @@ assign B = (alu_src) ? immediate : read_data2;
 assign address = result;
 assign mem_write_data = read_data2;
 
-assign reg_write_data = (jump || jalr) ? pc_plus4: (opcode == 7'b0010111) ? pc + immediate: (mem_read) ? read_data : result;
+assign reg_write_data =
+        (jump || jalr) ? pc_plus4: 
+        (opcode == 7'b0010111) ? branch_target: 
+        (mem_read) ? read_data : 
+          result;
 
-assign next_pc = jalr ? ( jalr_target & 32'hFFFFFFFE):
- jump ? branch_target :
-  branch_taken ? branch_target :
-  pc_plus4;
+assign next_pc =
+   jalr ? jalr_target :
+   jump ? branch_target :
+   branch_taken ? branch_target :
+    pc_plus4;
 
 assign branch_taken = (branch &&(func3 == 3'b000)) ? beq:
 (branch &&(func3 == 3'b001)) ? bne:

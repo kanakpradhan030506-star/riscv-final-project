@@ -1,9 +1,20 @@
-## Single Cycle RISC-V Processor
+## Project Overview
+This project implements a 32-bit Single-Cycle RISC-V (RV32I) Processor using Verilog HDL. The processor executes one instruction per clock cycle and follows a modular RTL design suitable for FPGA implementation and ASIC design flow.
+The processor supports arithmetic, logical, shift, comparison, memory access, branch, jump, and upper-immediate instructions from the RV32I ISA.
 
-This project implements a basic 32-bit Single Cycle RISC-V Processor in Verilog HDL. The processor executes instructions by completing fetch, decode, execute, memory access, and write-back operations within a single clock cycle.
+### Implemented Features
+- 32-bit Single-Cycle RV32I Processor
+- Program Counter (PC)
+- Instruction Memory
+- Register File
+- Immediate Generator
+- Control Unit
+- ALU Control & 32-bit ALU
+- Data Memory
+- Branch and Jump Logic
+- Functional Verification using EDA Playground
 
-The design integrates multiple processor modules including ALU, Register File, Program Counter, Instruction Memory, Data Memory, Instruction Decoder, ALU Control, and Control Signal Generator.
+### Supported Instructions
+ADD, SUB, ADDI, AND, OR, XOR, SLL, SRL, SRA, SLT, SLTU, LW, SW, LUI, AUIPC, BEQ, BNE, BLT, BGE, BLTU, BGEU, JAL and JALR.
 
-The processor currently supports execution of R-Type, I-Type, S-Type, and basic B-Type instructions. Simulation waveforms were used to verify instruction flow, control signal generation, ALU operations, memory access, and register write-back.
-
-The project demonstrates understanding of processor architecture, datapath integration, instruction decoding, and hardware design using Verilog HDL.
+This project forms a foundation for future enhancements such as pipelining, hazard detection, forwarding, branch prediction, FPGA implementation, and RTL-to-GDSII flow.
